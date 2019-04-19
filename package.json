@@ -1,5 +1,5 @@
 {
-  "name": "Chat",
+  "name": "chat",
   "version": "1.0.0",
   "description": "Simple chat with socket.io",
   "main": "app.js",
@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/Mwa22/Chat/issues"
   },
-  "homepage": "https://github.com/Mwa22/Chat#readme"
+  "homepage": "https://github.com/Mwa22/Chat#readme",
+  "dependencies": {
+    "config": "^3.1.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1"
+  }
 }
