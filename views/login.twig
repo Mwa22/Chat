@@ -16,10 +16,8 @@
 
     <div class="modal-error">
         <i class="fas fa-times modal-exit"></i>
-        <div class="modal-title">Error</div>
-        <div class="modal-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto officiis non minus,
-            facere vero iste eveniet delectus possimus inventore, nam earum eligendi sunt at suscipit unde temporibus
-            illum laboriosam culpa?</div>
+        <div class="modal-title">{{ errorTitle }}</div>
+        <div class="modal-content">{{ errorContent }}</div>
     </div>
 
     <div class="container">
@@ -27,7 +25,7 @@
         <h1>Login</h1>
         <form action="" method="POST">
             <div class="input-container">
-                <input type="text" placeholder="Enter your username" />
+                <input type="text" name="username" placeholder="Enter your username" />
                 <div class="underline-input"></div>
             </div>
             <button type="submit">Send</button>
@@ -37,6 +35,14 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../js/login.js"></script>
+    
+    <!-- Show server emitted errors. -->
+    {% if (errorIndex) %}
+        <script>
+            shakeAnimation($("input"));
+            displayError(errors[{{ errorIndex }}].title, errors[{{ errorIndex }}].content);
+        </script>
+    {% endif %}
 </body>
 
 </html>

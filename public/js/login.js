@@ -6,6 +6,10 @@ const errors = [
     {
         title: "Invalid username",
         content: "Your username must be 3 to 16 characters."
+    },
+    {
+        title: "Username already taken",
+        content: "Type another username."
     }
 ];
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const config = require("config");
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
 const loginRouter = require("./routes/loginRouter");
 
@@ -11,6 +12,10 @@ app.use(morgan("dev"));
 
 // Static folders.
 app.use(express.static(__dirname + "/public"));
+
+// Body parser.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routers.
 app.use("/login", loginRouter)
