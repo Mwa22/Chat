@@ -2,7 +2,7 @@ const express = require("express");
 const config = require("config");
 const morgan = require("morgan");
 
-const loginRouter = require("./assets/login.js");
+const loginRouter = require("./routes/loginRouter");
 
 const app = express();
 
@@ -10,8 +10,7 @@ const app = express();
 app.use(morgan("dev"));
 
 // Static folders.
-app.use(express.static("login"));
-app.use(express.static("chat"));
+app.use(express.static(__dirname + "/public"));
 
 // Routers.
 app.use("/login", loginRouter)

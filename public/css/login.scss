@@ -1,0 +1,144 @@
+$faded-red: #e74c3c;
+$faded-blue: rgb(44, 102, 110);
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Ubuntu|Roboto');
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    20%, 100% {transform: rotate(180deg);}
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-error {
+    opacity: 0;
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $faded-red;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .5);
+    color: white;
+}
+
+.modal-title {
+    font-size: 1.8em;
+    font-family: Roboto;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.modal-content {
+    text-align: center;
+    line-height: 1.2;
+    font-family: Ubuntu;
+}
+
+.modal-exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.modal-exit:hover {
+    animation: spin 1.5s infinite linear;
+}
+
+.container {
+    @extend %flex-center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(60deg, #4CA1AF, #C4E0E5);
+}
+
+h1 {
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    font-family: Montserrat;
+    color: white;
+}
+
+form {
+    @extend %flex-center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+input {
+    width: 250px;
+    padding: 10px;
+    border: none;
+}
+
+
+.underline-input {
+    height: 5px;
+    background-color: $faded-blue;
+    position: relative;
+    right: 100%;
+    transition: 0.5s;
+}
+
+input:hover~.underline-input {
+    right: 0;
+}
+
+button {
+    padding: 10px 30px;
+    background-color: transparent;
+    border: 3px solid $faded-blue;
+    color: darken($faded-blue, 10%);
+    font-family: Roboto;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: $faded-blue;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .modal-error {
+        width: 60%;
+    }
+}
