@@ -1,3 +1,8 @@
 {
-    "port": "8080"
+    "port": "8080",
+    "host": "localhost",
+    "routes": {
+        "login": "/login",
+        "chat": "/chat"
+    }
 }

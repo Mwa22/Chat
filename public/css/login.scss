@@ -22,17 +22,20 @@ $faded-blue: rgb(44, 102, 110);
     20%, 100% {transform: rotate(180deg);}
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 %flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
 
 .modal-error {
     opacity: 0;
@@ -83,7 +86,7 @@ $faded-blue: rgb(44, 102, 110);
 .container {
     @extend %flex-center;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     background-image: linear-gradient(60deg, #4CA1AF, #C4E0E5);
 }
 
@@ -109,8 +112,8 @@ input {
     width: 250px;
     padding: 10px;
     border: none;
+    border-radius: 0;
 }
-
 
 .underline-input {
     height: 5px;

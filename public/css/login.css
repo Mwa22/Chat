@@ -114,11 +114,6 @@
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .container, form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -129,6 +124,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
 }
 
 .modal-error {
@@ -194,7 +198,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(60deg, #4CA1AF, #C4E0E5);
 }
 
@@ -222,6 +226,7 @@ input {
   width: 250px;
   padding: 10px;
   border: none;
+  border-radius: 0;
 }
 
 .underline-input {
