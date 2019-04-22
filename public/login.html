@@ -17,8 +17,8 @@
 
     <div class="modal-error">
         <i class="fas fa-times modal-exit"></i>
-        <div class="modal-title">{{ errorTitle }}</div>
-        <div class="modal-content">{{ errorContent }}</div>
+        <div class="modal-title"></div>
+        <div class="modal-content"></div>
     </div>
 
     <div class="container">
@@ -33,17 +33,10 @@
         </form>
     </div>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../js/login.js"></script>
-    
-    <!-- Show server emitted errors. -->
-    {% if (errorIndex) %}
-        <script>
-            shakeAnimation($("input"));
-            displayError(errors[{{ errorIndex }}].title, errors[{{ errorIndex }}].content);
-        </script>
-    {% endif %}
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/loginCTRL.js"></script>
+    <script src="../js/loginUI.js"></script>
 </body>
 
 </html>

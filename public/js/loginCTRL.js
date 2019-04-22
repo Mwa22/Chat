@@ -13,38 +13,13 @@ const errors = [
     }
 ];
 
-// Shake animation.
-function shakeAnimation(element) {
-    element.css("animation", "shake 0.5s");
-    setTimeout(() => {
-        element.css("animation", "none");
-    }, 500);
-}
-
-// Display modal error.
-function displayError(title, content) {
-    // Change modal content.
-    $(".modal-title").text(title);
-    $(".modal-content").text(content);
-
-    // Show modal.
-    $(".modal-error").css("display", "flex");
-    $(".modal-error").animate({top: "10px", opacity: 1});
-}
-
-// Close modal Error.
-function closeModal() {
-    $(".modal-error").css("display", "none");
-
-    // Reset modal-error for animation.
-    $(".modal-error").css("top", "0");
-    $(".modal-error").css("opacity", "0");
-}
+let socket = io();
 
 $(document).ready(() => {
 
     // Test input value.
     $("form").submit((event) => {
+        event.preventDefault();
         
         let value = $("input").val();
         let errorIndex = -1;
@@ -58,11 +33,19 @@ $(document).ready(() => {
 
         // Display error.
         if (errorIndex != -1) {
-            event.preventDefault();
             shakeAnimation($("input"));
             displayError(errors[errorIndex].title, errors[errorIndex].content);
         }
-
+        // Send form.
+        else {
+            socket.emit("send-form", value, (errId) => {
+                // Display error from server.
+                if (errId) {
+                    shakeAnimation($("input"));
+                    displayError(errors[errId].title, errors[errId].content);
+                }
+            });
+        }
     });
 
     // Exit modal error.
