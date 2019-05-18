@@ -7,16 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chat</title>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/chat.css" />
+    <link rel="stylesheet" type="text/css" href="../css/fix-zoom.css" />
 </head>
 
 <body>
+
+    <div class="modal-error">
+        <div class="modal-container">
+            <div class="modal-title">Not Logged in</div>
+            <div class="modal-content">
+                <a href="/login">Click here to login.</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="chat-title">
+            <h1>Chat</h1>
+        </div>
+        <div class="chat-container">
+            <div class="chat-content"></div>
+            <form class="chat-input">
+                <input type="text" placeholder="Enter a message" />
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-
-    <script>
-        var socket = io();
-    </script>
+    <script src="../js/chatCTRL.js"></script>
+    <script src="../js/chatUI.js"></script>
 </body>
 
 </html>

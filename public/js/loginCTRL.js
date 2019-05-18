@@ -5,7 +5,7 @@ const errors = [
     },
     {
         title: "Invalid username",
-        content: "Your username must be 3 to 16 characters."
+        content: "Your username must be 3 to 8 characters."
     },
     {
         title: "Username already taken",
@@ -13,7 +13,7 @@ const errors = [
     }
 ];
 
-let socket = io();
+let socket = io.connect("/login");
 
 $(document).ready(() => {
 
@@ -27,7 +27,7 @@ $(document).ready(() => {
         if (value == "") {
             errorIndex = 0;
         }
-        else if (value.length < 3 || value.length > 16) {
+        else if (value.length < 3 || value.length > 8) {
             errorIndex = 1;
         }
 
@@ -52,4 +52,8 @@ $(document).ready(() => {
     $(".modal-exit").click(() => {
         closeModal();
     });
+
+    socket.on("redirect", destination => {
+        window.location.assign(destination);
+    })
 });

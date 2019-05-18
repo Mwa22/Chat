@@ -34,7 +34,7 @@ app.get(config.routes.login, (req, res) => {
 
 // Display chat page.
 app.get(config.routes.chat, (req, res) => {
-    res.sendFile(__dirname + "/public/html.html");
+    res.sendFile(__dirname + "/public/chat.html");
 });
 
 // Handle errors.
